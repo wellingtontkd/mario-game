@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: black;
+}
+.container{    
+    width: 100vw;
+    height: 100vh;
+    background: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.game-board{
+    display: block;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(rgb(81, 169, 241),rgb(192, 246, 250));
+    width: 80%;
+    height: 600px;
+    border-bottom: 15px solid #292;
+    margin: auto;
+}
+#mario{
+    position: absolute;
+    bottom: 0;
+    width: 170px;
+    height: 150px;
+}
+#mario.pulo{
+    animation: pular 0.6s linear;
+}
+#mario.pulo-duplo{
+    animation: pular-alto 0.8s linear;
+}
+@keyframes pular{
+    25% {
+        bottom: 170px;
+    }
+    50% {
+        bottom: 170px;
+    }   
+}
+@keyframes pular-alto{
+    0% {
+        bottom: 170px;
+    }
+    15% {
+        bottom: 250px;
+    }
+    25% {
+        bottom: 320px;
+    }
+    50% {
+        bottom: 320px;
+    }   
+}
+.cano{
+    position: absolute;
+    bottom: 0;
+    right: -50%;
+    width: 100px;
+    height: 100px;
+    animation: movimento-cano 2s infinite linear;
+    animation-delay: 2s;
+}
+.antonella{    
+    width: 250px;
+    height: 100px;
+    animation: movimento-cano 2s infinite linear;
+    animation-delay: 2s;
+}
+@keyframes movimento-cano {
+    from {
+        right: -50%;
+    }   
+    to{
+        right: 100%;
+    }
+}
+.container-blocos{
+    position: absolute;
+    bottom: 220px;
+    right: -20%;
+    animation: movimento-blocos 4s infinite linear;
+}
+@keyframes movimento-blocos {   
+    from {
+        right: -150%;
+    }   
+    to{
+        right: 150%;
+    } 
+}
+.blocos{
+    position: relative;
+    background-color: black;
+}
+.bloco{
+    position: absolute;
+    bottom: 0;
+    width: 70px;
+    height: 70px;
+    right: 0;
+}
+.b1{
+    right: 140px;
+}
+.b2{
+    right: 70px;
+}
+.b3{
+    right: 0;
+}
