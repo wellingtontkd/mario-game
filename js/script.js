@@ -1,14 +1,14 @@
 function pressSpace() {
-    document.dispatchEvent(new KeyboardEvent('keydown', {key: " ",
+    document.dispatchEvent(new KeyboardEvent('keydown', {key: ' ',
     keyCode: 32,
-    code: "Space"}));    
+    code: 'Space'}));    
 };
 
 class Mario {
     constructor (id) {
         this.mario = document.getElementById(id);
-        this.mario.setAttribute('onclick', "pressSpace()")
-        this.mario.setAttribute('ontouchstart', "pressSpace()")        
+        this.mario.setAttribute('onclick', 'pressSpace()')
+        this.mario.setAttribute('ontouchstart', 'pressSpace()')        
         this.pulando = false;
     };
     bottom (){
@@ -56,14 +56,14 @@ const cano = document.querySelector('.cano');
 
 const tratarTecla = (e) => {
     switch (e.code) {
-        case "Space": {            
+        case 'Space': {            
             if (mario.pulando)
               mario.pularAlto()
             else            
               mario.pular();
             break;
         };
-        case "Escape": {
+        case 'Escape': {
             window.location.href = window.location.href
             break;
         };
@@ -84,3 +84,22 @@ const loop = setInterval(() => {
 
 document.addEventListener('keydown', tratarTecla);
 //document.addEventListener('ontouchstart', keyPress);
+
+
+function startTimer(duration, display) {
+    var hour = 0, minute = 0;
+    setInterval(function () {
+        if (minute++ > 59) {
+            if (hour++ > 23) hour = 0;
+            minute = 0;
+        };
+        hour = (hour).toString(10).padStart(2,'0');
+        minute = minute < 10 ? "0" + minute : minute;
+        display.textContent = hour + ":" + minute;
+    }, 50);
+}
+window.onload = function () {
+    var duration = 60 * 24; // Converter para segundos
+    display = document.querySelector('#timer'); // selecionando o timer
+    startTimer(duration, display); // iniciando o timer
+};

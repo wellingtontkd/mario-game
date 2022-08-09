@@ -24,6 +24,27 @@ body{
     height: 600px;
     border-bottom: 15px solid #292;
     margin: auto;
+    animation: passagemDoDia 5s infinite linear;
+}
+@keyframes passagemDoDia {
+    0%{
+        background: linear-gradient(rgb(0, 0, 50),rgb(0, 0, 50));
+    }
+    10%{
+        background: linear-gradient(rgb(0, 0, 50),rgb(0, 0, 50), rgb(25,25,75));
+    }
+    30%{
+        background: linear-gradient(rgb(0, 0, 50), rgb(25,25,75),rgb(61, 61, 135));
+    }
+    50%{
+        background: linear-gradient(rgb(25,25,75),rgb(64, 94, 216),rgb(83, 98, 233), rgb(118, 147, 242));
+    }
+    70%{
+        background: linear-gradient(rgb(25,25,75),rgb(55, 88, 172),rgb(80, 148, 211), rgb(106, 175, 248));
+    }
+    90%{
+        background: linear-gradient(rgb(61, 108, 236),rgb(72, 157, 255), rgb(74, 184, 247));
+    }
 }
 #mario{
     position: absolute;
@@ -64,12 +85,6 @@ body{
     bottom: 0;
     right: -50%;
     width: 100px;
-    height: 100px;
-    animation: movimento-cano 2s infinite linear;
-    animation-delay: 2s;
-}
-.antonella{    
-    width: 250px;
     height: 100px;
     animation: movimento-cano 2s infinite linear;
     animation-delay: 2s;
@@ -115,4 +130,11 @@ body{
 }
 .b3{
     right: 0;
+}
+#timer {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-style: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
