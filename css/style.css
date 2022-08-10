@@ -4,46 +4,51 @@
     box-sizing: border-box;
 }
 body{
-    background-color: black;
-}
-.container{    
     width: 100vw;
     height: 100vh;
-    background: white;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    background: linear-gradiente(rgb(80, 170, 240),rgb(190, 250, 250));
 }
-.game-board{
+.container{
     display: block;
     position: relative;
+    background:linear-gradiente(rgb(80, 170, 240),rgb(190, 250, 250));
+    width: 95%;
+    height: 95%;
+    display: flex;
+    flex-direction: row;
     overflow: hidden;
-    background: linear-gradient(rgb(81, 169, 241),rgb(192, 246, 250));
-    width: 80%;
-    height: 600px;
     border-bottom: 15px solid #292;
-    margin: auto;
-    animation: passagemDoDia 5s infinite linear;
+}
+#background{
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 5000%;    
+    /* background: linear-gradient(rgb(80, 170, 240),rgb(190, 250, 250)); */
+    /* border-bottom: 15px solid #292; */
+    background: rgb(0, 0, 30);    
+    background: linear-gradient(rgb(80, 170, 240),rgb(190, 250, 250),
+                                rgb(190, 250, 250),rgb(80, 170, 240),
+                                rgb(80, 170, 240),rgb(40, 85, 120),
+                                rgb(40, 85, 120),rgb(20, 40, 60),
+                                rgb(20, 40, 60),rgb(10, 20, 30),
+                                rgb(0, 0, 30),rgb(0, 0, 30),
+                                rgb(10, 20, 30),rgb(20, 40, 60),
+                                rgb(20, 40, 60),rgb(40, 85, 120),
+                                rgb(40, 85, 120),rgb(80, 170, 240),
+                                rgb(80, 170, 240),rgb(190, 250, 250));
+    animation: passagemDoDia 15s infinite linear;
 }
 @keyframes passagemDoDia {
-    0%{
-        background: linear-gradient(rgb(0, 0, 50),rgb(0, 0, 50));
+    from {
+        top: 0;        
     }
-    10%{
-        background: linear-gradient(rgb(0, 0, 50),rgb(0, 0, 50), rgb(25,25,75));
-    }
-    30%{
-        background: linear-gradient(rgb(0, 0, 50), rgb(25,25,75),rgb(61, 61, 135));
-    }
-    50%{
-        background: linear-gradient(rgb(25,25,75),rgb(64, 94, 216),rgb(83, 98, 233), rgb(118, 147, 242));
-    }
-    70%{
-        background: linear-gradient(rgb(25,25,75),rgb(55, 88, 172),rgb(80, 148, 211), rgb(106, 175, 248));
-    }
-    90%{
-        background: linear-gradient(rgb(61, 108, 236),rgb(72, 157, 255), rgb(74, 184, 247));
+    to {
+        top: -5000%;
     }
 }
 #mario{
