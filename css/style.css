@@ -1,35 +1,93 @@
-*{
+*{  
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 body{
-    background-color: black;
-}
-.container{    
     width: 100vw;
     height: 100vh;
-    background: white;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    background: linear-gradient(rgb(29, 127, 219),rgb(190, 250, 250));
 }
-.game-board{
+.container{
     display: block;
     position: relative;
+    background: rgb(0,0,10);
+    width: 95%;
+    height: 95%;
+    display: flex;
+    flex-direction: row;
     overflow: hidden;
-    background: linear-gradient(rgb(81, 169, 241),rgb(192, 246, 250));
-    width: 80%;
-    height: 600px;
     border-bottom: 15px solid #292;
-    margin: auto;
 }
+#background{
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 1200%;  
+    color: white;
+    background: linear-gradient(
+                rgb(0,0,10),
+                rgb(0,0,20),
+                rgb(0,0,30),
+                rgb(29, 127, 219),
+                rgb(190, 250, 250),
+                rgb(190, 250, 250),
+                rgb(190, 250, 250),
+                rgb(190, 250, 250),
+                rgb(29, 127, 219),
+                rgb(0,0,40),
+                rgb(0,0,30),
+                rgb(0,0,20),
+                rgb(0, 0, 10));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    /* animation: background-animate 60s infinite linear; */
+}
+@keyframes background-animate {
+    from {
+        top: 0;        
+    }
+    to {
+        top: -1200%;
+    }
+}
+#background > .cor{
+    background-color: rgb(137, 207, 2533,0);
+    border: 1px solid yellow;
+    width: 100%;
+    height: 8.33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.cor p{
+    font-size: 30px;
+    font-weight: bold;
+    width: fit-content; 
+    text-align: center;
+    width: 100%;
+}
+
+#play{
+    height: 25vh;
+    width: 40vh;
+    z-index: 999;
+    align-self: center;
+    margin: 0 auto;
+}
+
+/* mario */
 #mario{
     position: absolute;
     bottom: 0;
-    width: 170px;
-    height: 150px;
+    width: 25vh;
+    height: 25vh;
 }
 #mario.pulo{
     animation: pular 0.6s linear;
@@ -39,42 +97,38 @@ body{
 }
 @keyframes pular{
     25% {
-        bottom: 170px;
+        bottom: 25vh;
     }
     50% {
-        bottom: 170px;
+        bottom: 25vh;
     }   
 }
 @keyframes pular-alto{
     0% {
-        bottom: 170px;
+        bottom: 25vh;
     }
     15% {
-        bottom: 250px;
+        bottom: 35vh;
     }
     25% {
-        bottom: 320px;
+        bottom: 45vh;
     }
     50% {
-        bottom: 320px;
+        bottom: 45vh;
     }   
 }
-.cano{
+
+/* cano */
+#pipe{
     position: absolute;
     bottom: 0;
     right: -50%;
-    width: 100px;
-    height: 100px;
-    animation: movimento-cano 2s infinite linear;
+    width: 15vh;
+    height: 15vh;
     animation-delay: 2s;
+    /* animation: pipe-animate 2s infinite linear; */
 }
-.antonella{    
-    width: 250px;
-    height: 100px;
-    animation: movimento-cano 2s infinite linear;
-    animation-delay: 2s;
-}
-@keyframes movimento-cano {
+@keyframes pipe-animate {
     from {
         right: -50%;
     }   
@@ -82,13 +136,57 @@ body{
         right: 100%;
     }
 }
-.container-blocos{
+
+/* sol */
+#sun{
+    position: absolute;
+    top: 200%;
+    right: 0px;
+    height: 25vh;
+    width: 30vh;
+    z-index: 999;
+    /* animation: sun-animate 60s infinite linear; */
+}
+#sun-shadow{    
+    position: absolute;
+    border-radius: 100%;
+    top: 200%;
+    right: 0px;
+    height: 1px;
+    width: 1px;
+    box-shadow: -12.5vh 15vh 25vw 40vh rgba(255, 255, 169, 0.9); 
+}
+@keyframes sun-animate{
+    0% {
+        top: 200vh;
+        right: 0;
+    }
+    15%{
+        /* top: 0%; */
+        top: 100vh;
+        right: -5vw;
+    }    
+    50%{
+        top: 5vh;
+    }
+    75%{
+        top: -40vh;
+        right: 50%;
+    }
+    100%{
+        top: -40vh;
+        right: 100%;
+    }
+}
+
+/* blocos */
+#blocks{
     position: absolute;
     bottom: 220px;
-    right: -20%;
-    animation: movimento-blocos 4s infinite linear;
+    right: -200vh;
+    /* animation: movimento-blocos 4s infinite linear; */
 }
-@keyframes movimento-blocos {   
+@keyframes blocks-animate {   
     from {
         right: -150%;
     }   
@@ -115,4 +213,11 @@ body{
 }
 .b3{
     right: 0;
+}
+#timer {
+    position: absolute;
+    top: 1vh;
+    right: 1vw;
+    font-style: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;   
 }
