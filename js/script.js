@@ -53,9 +53,9 @@ class Game {
             const marioPosition = this.mario.bottom();
             if ((pipePosition > 0) && (pipePosition <= this.mario.clientWidth()) && 
                 (marioPosition <= this.pipe.clientHeight)) {
-                this.elementsStopAnimate();
-                this.pipe.style.animation = 'none';
-                this.pipe.style.left = `${pipePosition}px`;
+                    this.elementsStopAnimate();
+                    this.pipe.style.animation = 'none';
+                    this.pipe.style.left = `${pipePosition}px`;
             }    
         }, 10);
     }
@@ -75,8 +75,11 @@ class Mario {
         this.mario.setAttribute('src', './img/mario-running.gif');
         this.pulando = false;
     };
-    stop(){        
-        this.mario.setAttribute('src', './img/mario-stopped.gif');
+    stop(){                
+        this.mario.style.left = '45px';
+        console.log(`${(this.bottom() * 1)+15}`);
+        this.mario.style.bottom = `${(this.bottom() * 1)+15}px`
+        this.mario.setAttribute('src', './img/mario-lose.webp');
         this.pulando = false;
     }
     bottom (){
